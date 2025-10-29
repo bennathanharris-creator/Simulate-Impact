@@ -7,12 +7,6 @@ Created on Thu Dec  5 13:58:07 2024
 """
 
 import pandas as pd
-import matplotlib.pyplot as plt
-import numpy as np
-import seaborn
-from scipy.stats import poisson,skellam
-import statsmodels.api as sm
-import statsmodels.formula.api as smf
 
 # Load in normalised stats
 df = pd.read_csv('all_player_stats_24-25_normalised.csv')
