@@ -25,9 +25,16 @@ I also created a few new columns such as 'Shots on Target Missed Goal' which is 
 
 A final  little alteration  I made in the model was to filter purely for players who had played a minimum of 500 minutes in the Premier League, because I found when I filtered for players who had played at least 90 minutes I was getting a lot of players who had played maybe 100-300 minutes coming off the bench in the last few minutes of games and had been on the pitch for a lot of impactful moments, which skewed their stats and so I wanted to remove these players.
 
+This same project could be repeated for any league or competition that FBREF has statistics for by simply changing the URL in my 'Get_all_stats.py' file.
+
 ---
 
 ## Tools
 **Python**(using Spyder): Selenium, BeautifulSoup, pandas, time, sci-kit learn, xgboost
 
 ## Models
+I created two separate models for this project, in order to compare and evaluate the different ways in which they could create the Impact rating, but also because each model offers a different strength. The first model I created, 'Simulate_Impact.py', has the strength of being completely personalisable. It is a very simple model; it takes every statistic that FBREF offers and puts them into three different categories: attack, defence and miscellaneous. From there I can choose exactly how I want each statistic to be used in the Impact rating, by adding multipliers to each one, based on my own personal experience of watching and playing football and how significant I deem the statistic to be. 
+Another big positive for this model is that the defensive impact can be positively quantified, because there are plenty of positive defensive statistics, such as tackles won and clearances among others. These can be added up and the negative defensive statistics can be subtracted from this to get the definitive defensive impact, which will be positive for many strong defensive players. 
+The split of attack and defence statistics means I can also see specifically how players are performing in both areas of the game, with miscellaneous comprising of the statistics that do not fit into attack or defence, but are still important to a player's performance.
+
+The second model, 'Simulate_Impact_ML.py', is similar to the first model in the sense that it has three separate ratings contributing to an overall total Impact rating: attack, defence and miscellaneous. It also uses the exact same method to find the miscellaneous impact. The key differences are that this model uses machine-learning to find the optimal rating of attack and defence for each player.
