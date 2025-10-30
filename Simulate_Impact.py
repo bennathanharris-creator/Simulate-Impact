@@ -80,7 +80,7 @@ def create_attacking_impact(df):
          - 0.1*df['Take Ons Lost per 90'] + 0.025*df['Carries into Final Third per 90']
          + 0.1*df['Carries into Penalty Area per 90'] + 0.1*df['Goals whilst on Pitch per 90']
          + 0.05*df['xG whilst on Pitch per 90'] - 0.25*df['Offsides per 90'] + 2*df['Penalties Won per 90'])
-     return df['Attacking Impact']
+     return df['Attacking Impact'] * 1.25
 
 # Do the same for the defensive statistics
 def create_defending_impact(df):
@@ -94,7 +94,7 @@ def create_defending_impact(df):
     + 0.1*df['Recoveries per 90'] + 0.5*df['Aerial Duels Won per 90']
     - 0.25*df['Aerial Duels Lost per 90'])
     
-    return df['Defensive Impact']
+    return df['Defensive Impact'] * 1.25
 
 # Repeat again for miscellaneous statistics that fit neither in the attacking
 # nor defensive impact rating

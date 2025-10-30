@@ -136,7 +136,7 @@ print(f"ML model test MSE: {mse:.5f}, R2: {r2:.4f}")
 # Apply ml_model to full dataset
 X_full = X.copy()
 
-df['Attacking Impact ML'] = ml_model.predict(X_full)
+df['Attacking Impact ML'] = ml_model.predict(X_full) * 1.5
 
 
 # ---------------------- Defensive Impact Model -----------------------------------
@@ -193,7 +193,7 @@ ml_model_def = xgb_model_def
 
 
 X_full_def = X_def.copy()
-df['Defensive Impact ML'] = ml_model_def.predict(X_full_def)
+df['Defensive Impact ML'] = ml_model_def.predict(X_full_def) * 1.5
 
 
 # ---------------------- Misc Impact model -----------------------------------
@@ -209,7 +209,7 @@ def create_misc_impact(df):
     - 0.05*df['Short Pass Missed per 90'] + 0.05*df['Medium Pass per 90'] 
     - 0.05*df['Medium Pass Missed per 90'] + 0.1*df['Long Pass per 90'] - 0.01*df['Long Pass Missed per 90']
     + 0.005*df['Carries per 90'] - 0.25*df['Miscontrols per 90'] - 0.25*df['Dispossessed per 90']
-    - 0.5*df['Fouls Comitted per 90'] + 0.5*df['Fouls Drawn per 90'])/1.5
+    - 0.5*df['Fouls Comitted per 90'] + 0.5*df['Fouls Drawn per 90'])
     
     return df['Misc Impact']
 
